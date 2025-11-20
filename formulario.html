@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabum - Loja de Jogos Virtuais | Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logoK.png">
+
+</head>
+<body>
+
+    <header>
+        <h1 class="titulo">Formulário de Contato</h1>
+
+        <p>Preencha os campos abaixo para entrar em contato conosco:</p>        
+    </header>
+
+    <form>
+
+        <label for="nome">Nome Completo: <label class="obrigatorio">*</label><br>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome aqui"><br><br>
+
+
+        <label for="e-mail">E-mail: </label class="obrigatorio">*</label><br>
+        <input type="e-mail" id="e-mail" name="e-mail" placeholder="seu.e-mail@exemplo.com"><br><br>
+
+
+        <label for="telefone">Telefone: </label class="obrigatorio">*</label><br>
+        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX"><br><br>
+
+
+        <p>Qual seu estilo de jogo favorito? <label class="obrigatorio">*</label></p>
+        
+        <input type="radio" id="acao" name="estilo_de_jogo" value="acao">
+        <label for="acao">Ação</label><br>
+        <input type="radio" id="corrida" name="estilo_de_jogo" value="corrida">
+        <label for="corrida">Corrida</label><br>
+        <input type="radio" id="esportes" name="estilo_de_jogo" value="esportes">
+        <label for="esportes">Esportes</label><br><br>
+
+
+        <p>Qual jogo que você conhece? <label class="obrigatorio">*</label></p>
+        <input type="checkbox" id="Valorant" name="jogo" value="Valorant">
+        <label for="Valorant">Valorant</label><br>
+        <input type="checkbox" id="Midnight Club 3" name="jogo" value="Midnight Club 3">
+        <label for="Midnight Club 3">Midnight Club 3</label><br>
+        <input type="checkbox" id="bomba patch" name="jogo" value="bomba patch">
+        <label for="bomba patch">Bomba Patch</label><br><br>
+
+
+        <label for="recomendacao">Digite aqui o jogo que você procura:</label><br>
+        <textarea id="recomendacao" name="recomendacao" rows="5" cols="40" placeholder="Digite sua mensagem aqui..."></textarea><br><br>
+
+        <button type="submit">Enviar Formulário</button>
+        
+
+    <script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("e-mail").value;
+    let telefone = document.getElementById("telefone").value;
+    let estiloDeJogo = document.querySelector('input[name="estilo_de_jogo"]:checked');
+
+    if (nome === "" || email === "" || telefone === "" || estiloDeJogo === null) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+    }
+
+    let resposta = confirm("Suas informações foram enviadas com sucesso! Obrigado!");
+
+    if (resposta) {
+        alert("Nós entraremos em contato em breve.");
+
+    } else {
+        alert("Ação cancelada.");
+    }
+});
+    </script>
+
+        <button type="reset">Limpar Campos</button>
+        <p>Obrigado por seu contato!</p>
+
+
+    </form>
+    
+    <footer>
+        <p>&copy; 2025 Kabum, Loja de Jogos Virtuais. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Alunos de Programação.</p>
+    </footer>
+
+</body>
+</html>
